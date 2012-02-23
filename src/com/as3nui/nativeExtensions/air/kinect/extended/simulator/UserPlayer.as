@@ -15,8 +15,7 @@
  */
 
 package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
-	import com.as3nui.nativeExtensions.air.kinect.Kinect;
-	import com.as3nui.nativeExtensions.air.kinect.constants.JointIndices;
+	import com.as3nui.nativeExtensions.air.kinect.Device;
 	import com.as3nui.nativeExtensions.air.kinect.data.SkeletonJoint;
 	import com.as3nui.nativeExtensions.air.kinect.data.User;
 	import com.as3nui.nativeExtensions.air.kinect.data.UserFrame;
@@ -92,11 +91,11 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 		/**
 		 * Reference to kinect to simulate frames through
 		 */
-		private var _kinect:Kinect;
+		private var _device:Device;
 
-		public function UserPlayer(kinect:Kinect) {
+		public function UserPlayer(device:Device) {
 			_pulseSprite = new Sprite();
-			_kinect = kinect
+			_device = device
 		}
 
 		/**
@@ -107,7 +106,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 		 */
 		public function play(jsonObject:Object, loop:Boolean = false, skipInitialDelay:Boolean = true):void {
 
-			_kinect.skeletonSimulationMode = true;
+			_device.userSimulationMode = true;
 			_loop = loop;
 			_currentRecording = jsonObject;
 			_currentFrame = 0;
@@ -145,7 +144,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 			_currentFrame = 0;
 			_pulseSprite.removeEventListener(Event.ENTER_FRAME, onUpdate);
 			_state = STOPPED;
-			_kinect.skeletonSimulationMode = false;
+			_device.userSimulationMode = false;
 		}
 
 		/**
@@ -249,7 +248,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 
 				}
 				var userFrame:UserFrame = new UserFrame(_currentFrame, getTimer(), users);
-				_kinect.simulateUserFrame(userFrame);
+				_device.simulateUserFrame(userFrame);
 
 				if (_currentFrame >= _endFrame - 1) {
 					if (_loop) {

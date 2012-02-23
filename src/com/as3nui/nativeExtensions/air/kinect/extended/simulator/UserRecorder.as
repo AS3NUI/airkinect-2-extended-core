@@ -15,11 +15,7 @@
  */
 
 package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
-	import com.as3nui.nativeExtensions.air.kinect.Kinect;
-	import com.as3nui.nativeExtensions.air.kinect.constants.JointIndices;
-	import com.as3nui.nativeExtensions.air.kinect.data.SkeletonJoint;
-	import com.as3nui.nativeExtensions.air.kinect.data.User;
-	import com.as3nui.nativeExtensions.air.kinect.data.UserFrame;
+	import com.as3nui.nativeExtensions.air.kinect.Device;
 	import com.as3nui.nativeExtensions.air.kinect.events.UserFrameEvent;
 	import com.as3nui.nativeExtensions.air.kinect.extended.simulator.data.TimeCodedUserFrame;
 	import com.as3nui.nativeExtensions.air.kinect.extended.simulator.data.UserRecording;
@@ -74,15 +70,15 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 		/**
 		 * Kinect Instance to record from
 		 */
-		private var _kinect:Kinect;
+		private var _device:Device;
 
 		/**
 		 * Skeleton Recorder constructor
 		 */
-		public function UserRecorder(kinect:Kinect) {
+		public function UserRecorder(device:Device) {
 			_currentRecording = new <TimeCodedUserFrame>[];
 			_ignoreEmptyFrames = true;
-			_kinect = kinect;
+			_device = device;
 		}
 
 		/**
@@ -94,7 +90,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 			if (_state == STOPPED) clear();
 			_recordingStartTimer = getTimer();
 			_state = RECORDING;
-			_kinect.addEventListener(UserFrameEvent.USER_FRAME_UPDATE, onUserFrame);
+			_device.addEventListener(UserFrameEvent.USER_FRAME_UPDATE, onUserFrame);
 		}
 
 		/**
@@ -103,7 +99,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 		public function pause():void {
 			if (!recording) return;
 			_state = PAUSED;
-			_kinect.removeEventListener(UserFrameEvent.USER_FRAME_UPDATE, onUserFrame);
+			_device.removeEventListener(UserFrameEvent.USER_FRAME_UPDATE, onUserFrame);
 		}
 
 		/**
@@ -113,7 +109,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 			if (!recording) return;
 			_state = STOPPED;
 			_recordedDuration = getTimer() - _recordingStartTimer;
-			_kinect.removeEventListener(UserFrameEvent.USER_FRAME_UPDATE, onUserFrame);
+			_device.removeEventListener(UserFrameEvent.USER_FRAME_UPDATE, onUserFrame);
 		}
 
 		/**
