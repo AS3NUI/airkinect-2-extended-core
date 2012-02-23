@@ -15,7 +15,7 @@
  */
 
 package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
-	import com.as3nui.nativeExtensions.air.kinect.Device;
+	import com.as3nui.nativeExtensions.air.kinect.Kinect;
 	import com.as3nui.nativeExtensions.air.kinect.events.UserFrameEvent;
 	import com.as3nui.nativeExtensions.air.kinect.extended.simulator.data.TimeCodedUserFrame;
 	import com.as3nui.nativeExtensions.air.kinect.extended.simulator.data.UserRecording;
@@ -70,12 +70,12 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 		/**
 		 * Kinect Instance to record from
 		 */
-		private var _device:Device;
+		private var _device:Kinect;
 
 		/**
 		 * Skeleton Recorder constructor
 		 */
-		public function UserRecorder(device:Device) {
+		public function UserRecorder(device:Kinect) {
 			_currentRecording = new <TimeCodedUserFrame>[];
 			_ignoreEmptyFrames = true;
 			_device = device;

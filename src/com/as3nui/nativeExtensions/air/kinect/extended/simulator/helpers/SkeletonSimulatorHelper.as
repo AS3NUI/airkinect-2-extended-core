@@ -15,7 +15,7 @@
  */
 
 package com.as3nui.nativeExtensions.air.kinect.extended.simulator.helpers {
-	import com.as3nui.nativeExtensions.air.kinect.Device;
+	import com.as3nui.nativeExtensions.air.kinect.Kinect;
 	import com.as3nui.nativeExtensions.air.kinect.events.UserFrameEvent;
 	import com.as3nui.nativeExtensions.air.kinect.extended.simulator.UserPlayer;
 	import com.as3nui.nativeExtensions.air.kinect.extended.simulator.UserRecorder;
@@ -114,7 +114,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator.helpers {
 		private static var _loop:Boolean;
 		private static var _currentPlayback:Object;
 		private static var _currentRecording:String;
-		private static var _device:Device;
+		private static var _device:Kinect;
 
 		/**
 		 * Initializes the Simulation Helper
@@ -135,7 +135,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator.helpers {
 		 *
 		 * @param stage					stage reference for helper to use
 		 */
-		public static function init(stage:Stage, device:Device):void {
+		public static function init(stage:Stage, device:Kinect):void {
 			_stage = stage;
 			_device = device;
 			_userPlayer = new UserPlayer(_device);

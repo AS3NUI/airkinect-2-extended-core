@@ -15,7 +15,7 @@
  */
 
 package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
-	import com.as3nui.nativeExtensions.air.kinect.Device;
+	import com.as3nui.nativeExtensions.air.kinect.Kinect;
 	import com.as3nui.nativeExtensions.air.kinect.data.SkeletonJoint;
 	import com.as3nui.nativeExtensions.air.kinect.data.User;
 	import com.as3nui.nativeExtensions.air.kinect.data.UserFrame;
@@ -91,9 +91,9 @@ package com.as3nui.nativeExtensions.air.kinect.extended.simulator {
 		/**
 		 * Reference to kinect to simulate frames through
 		 */
-		private var _device:Device;
+		private var _device:Kinect;
 
-		public function UserPlayer(device:Device) {
+		public function UserPlayer(device:Kinect) {
 			_pulseSprite = new Sprite();
 			_device = device
 		}
