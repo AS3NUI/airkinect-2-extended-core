@@ -65,8 +65,9 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 		override protected function onHandleCapture():void {
 			super.onHandleCapture();
 			this.addChild(_selectionTimer);
-			_selectionTimer.x = centerPoint.x - (_selectionTimer.width / 2);
-			_selectionTimer.y = centerPoint.y - (_selectionTimer.height / 2);
+
+			_selectionTimer.x = centerPoint.x;
+			_selectionTimer.y = centerPoint.y;
 
 
 			_selectionTimer.onProgress(0);

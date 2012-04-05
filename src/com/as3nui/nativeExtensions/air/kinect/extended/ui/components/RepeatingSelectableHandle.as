@@ -85,8 +85,8 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 
 		private function addSelectionTimer():void {
 			this.addChild(_selectionTimer);
-			_selectionTimer.x = centerPoint.x - (_selectionTimer.width / 2);
-			_selectionTimer.y = centerPoint.y - (_selectionTimer.height / 2);
+			_selectionTimer.x = centerPoint.x;
+			_selectionTimer.y = centerPoint.y;
 		}
 
 		private function startSelectionTimer():void {
@@ -132,8 +132,11 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 
 					//Repeat Timer
 					this.addChild(_repeatTimer);
-					_repeatTimer.x = centerPoint.x - (_repeatTimer.width / 2);
-					_repeatTimer.y = centerPoint.y - (_repeatTimer.height / 2);
+//					_repeatTimer.x = centerPoint.x - (_repeatTimer.width / 2);
+//					_repeatTimer.y = centerPoint.y - (_repeatTimer.height / 2);
+
+					_repeatTimer.x = centerPoint.x;
+					_repeatTimer.y = centerPoint.y;
 				}
 			}
 

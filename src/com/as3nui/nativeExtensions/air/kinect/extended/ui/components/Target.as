@@ -102,8 +102,8 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 			_globalCursorPosition.y = _cursor.y * stage.stageHeight;
 			_localCursorPosition = UIManager.cursorContainer.globalToLocal(_globalCursorPosition);
 
-			_selectionTimer.x = _localCursorPosition.x - (_selectionTimer.width / 2);
-			_selectionTimer.y = _localCursorPosition.y - (_selectionTimer.height / 2);
+			_selectionTimer.x = _localCursorPosition.x;
+			_selectionTimer.y = _localCursorPosition.y;
 
 			var progress:Number = (getTimer() - _selectionStartTimer) / (_selectionDelay * 1000);
 			_selectionTimer.onProgress(progress);
