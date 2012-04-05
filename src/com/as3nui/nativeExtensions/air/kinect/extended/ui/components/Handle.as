@@ -98,10 +98,10 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 		protected function createCaptureArea():void {
 			_captureArea.graphics.clear();
 			_captureArea.graphics.beginFill(0xff0000, _showCaptureArea ? .5 : 0);
-			
-			var width:uint = this.width + (_capturePadding * this.width);
-			var height:uint = this.height + (_capturePadding * this.height);
-			_captureArea.graphics.drawRect(-(_capturePadding * this.width)/2, -(_capturePadding * this.height)/2, width, height);
+
+			var width:uint = _icon.width + (_capturePadding * _icon.width);
+			var height:uint = _icon.height + (_capturePadding * _icon.height);
+			_captureArea.graphics.drawRect(-(_capturePadding * _icon.width)/2, -(_capturePadding * _icon.height)/2, width, height);
 		}
 
 		/**
