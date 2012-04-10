@@ -99,5 +99,16 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 			}
 		}
 
+		public function get icon():DisplayObject {
+			return _icon;
+		}
+
+		public function get idleIcon():DisplayObject {
+			return _idleIcon;
+		}
+
+		public function get disabledIcon():DisplayObject {
+			return _disabledIcon;
+		}
 	}
 }

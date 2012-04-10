@@ -286,5 +286,16 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 			return _cursor != null;
 		}
 
+		public function get icon():DisplayObject {
+			return _icon;
+		}
+
+		public function get selectedIcon():DisplayObject {
+			return _selectedIcon;
+		}
+
+		public function get disabledIcon():DisplayObject {
+			return _disabledIcon;
+		}
 	}
 }
