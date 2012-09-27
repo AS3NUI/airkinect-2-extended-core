@@ -80,12 +80,15 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 		}
 
 		override protected function onCursorOut(event:CursorEvent):void {
-			super.onCursorOut(event);
-			_cursor.visible = true;
-			_cursor = null;
-
-			if (UIManager.cursorContainer.contains(_selectionTimer)) UIManager.cursorContainer.removeChild(_selectionTimer);
-			this.removeEventListener(Event.ENTER_FRAME, onSelectionTimeUpdate);
+			if(_cursor)
+			{
+				super.onCursorOut(event);
+				_cursor.visible = true;
+				_cursor = null;
+	
+				if (UIManager.cursorContainer.contains(_selectionTimer)) UIManager.cursorContainer.removeChild(_selectionTimer);
+				this.removeEventListener(Event.ENTER_FRAME, onSelectionTimeUpdate);
+			}
 		}
 
 		protected function startSelectionTimer():void {

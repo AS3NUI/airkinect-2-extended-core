@@ -126,16 +126,16 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.components {
 
 			switch (_orientation) {
 				case RIGHT:
-					_trackCaptureArea.graphics.drawRect(0, -heightPadding / 2, width, height);
+					_trackCaptureArea.graphics.drawRect(0, -heightPadding * .5, width, height);
 					break;
 				case LEFT:
-					_trackCaptureArea.graphics.drawRect(_icon.width, -heightPadding / 2, -width, height);
+					_trackCaptureArea.graphics.drawRect(_icon.width, -heightPadding * .5, -width, height);
 					break;
 				case UP:
-					_trackCaptureArea.graphics.drawRect(-widthPadding / 2, _icon.height, width, -height);
+					_trackCaptureArea.graphics.drawRect(widthPadding * -.5, _icon.height, width, -height);
 					break;
 				case DOWN:
-					_trackCaptureArea.graphics.drawRect(-widthPadding / 2, 0, width, height);
+					_trackCaptureArea.graphics.drawRect(widthPadding * -.5, 0, width, height);
 					break;
 			}
 		}

@@ -17,9 +17,9 @@
 package com.as3nui.nativeExtensions.air.kinect.extended.ui.helpers {
 	import com.as3nui.nativeExtensions.air.kinect.extended.ui.managers.UIManager;
 	import com.as3nui.nativeExtensions.air.kinect.extended.ui.objects.Cursor;
-
+	
+	import flash.display.DisplayObject;
 	import flash.display.Sprite;
-
 	import flash.display.Stage;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -58,11 +58,12 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.helpers {
 		 * If the UIManager is not initialized yet the simulator will continue to attempt registration on MouseMove
 		 * @param stage		stage reference
 		 */
-		public static function init(stage:Stage):void {
+		public static function init(stage:Stage, icon:DisplayObject = null):void {
 			trace("Simulator Initialized");
 			_stage = stage;
 			_hasBeenAdded = false;
-			_mouseCursor = new Cursor("_mouse_", 1, new MouseGraphic());
+			if(!icon) icon = new MouseGraphic();
+			_mouseCursor = new Cursor("_mouse_", 1, icon);
 			_pulseSprite = new Sprite();
 			enable();
 		}

@@ -46,7 +46,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.managers {
 	public class UIManager {
 		public static var PARENT_SEARCH_ENABLED:Boolean		= true;
 
-		private static var _instance:UIManager;
+		protected static var _instance:UIManager;
 
 		public static function get instance():UIManager {
 			if(!_instance) throw new Error("UIManager must be initialized to be used at Singleton");
@@ -157,6 +157,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.managers {
 			_stage = stage;
 
 			_cursorContainer = new Sprite();
+			_cursorContainer.mouseChildren = _cursorContainer.mouseEnabled = false;
 			stage.addChild(_cursorContainer);
 			stage.addEventListener(Event.ADDED, onStageChildAdded);
 			stage.addEventListener(Event.ENTER_FRAME, onPulse);
@@ -393,6 +394,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.managers {
 			if(_customObjectFilter != null) return _customObjectFilter.apply(this, [point]);
 
 			var targets:Array =  _stage.getObjectsUnderPoint(point);
+			
 			var item:DisplayObject;
 
 			while(targets.length > 0) {
