@@ -375,7 +375,7 @@ package com.as3nui.nativeExtensions.air.kinect.extended.ui.managers {
 		public function unregisterComponent(interactiveObject:InteractiveObject):void {
 			if(_components.indexOf(interactiveObject) == -1) return;
 			var componentIndex:Number = this._components.indexOf(interactiveObject);
-			this._cursors.splice(componentIndex, 1);
+			this._components.splice(componentIndex, 1);
 		}
 
 		//----------------------------------
